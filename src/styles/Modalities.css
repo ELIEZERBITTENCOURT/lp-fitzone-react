@@ -1,0 +1,105 @@
+.modalities {
+  padding: 120px 0;
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.modalities::before {
+  content: 'TRAIN';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-family: var(--font-display);
+  font-size: 14rem;
+  color: rgba(232,255,0,0.03);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+.modalities__header {
+  margin-bottom: 64px;
+}
+
+.modalities__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.modality-card {
+  position: relative;
+  background: var(--bg-card);
+  padding: 40px 32px;
+  overflow: hidden;
+  cursor: default;
+  transition: background var(--transition);
+}
+
+.modality-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.modality-card:hover { background: #1a1a1a; }
+.modality-card:hover::after { width: 100%; }
+
+.modality-card__icon {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.modality-card__number {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.modality-card__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.modality-card__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.modality-card__tag {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 4px 12px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: rgba(232,255,0,0.1);
+  color: var(--accent);
+  border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+  .modalities__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .modalities__grid { grid-template-columns: 1fr; }
+}
